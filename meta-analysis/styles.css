@@ -1,0 +1,20 @@
+/* Make interactive blocks fill the iframe width */
+#quarto-content,
+main.content,
+.page-columns {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Remove Quarto's default margins and padding */
+main.content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Hide Quarto section headings */
+section.level2 > h2 {
+  display: none;
+}
