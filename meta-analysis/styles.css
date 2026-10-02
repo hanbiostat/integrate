@@ -51,3 +51,29 @@ section.level2 > h2 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
+
+/* Remove Quarto's centered grid layout */
+#quarto-content {
+  display: block !important;
+}
+
+#quarto-content > main,
+main.content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Make code editors use the full content width */
+section.level2,
+.cell,
+.live-code-cell {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
