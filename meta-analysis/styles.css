@@ -40,3 +40,12 @@ body {
 /* Do NOT force display: block here.
    JavaScript needs to hide unselected sections. */
 #quarto-document-content > section.level2 {
+
+/* DEBUG: Force only Code Block 1 to appear */
+body:has(#code-1) section.level2[id] {
+  display: none !important;
+}
+
+body:has(#code-1) section#code-1 {
+  display: block !important;
+}
