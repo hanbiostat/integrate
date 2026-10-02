@@ -6,14 +6,14 @@
   <title>Practice Exercise</title>
 </head>
 
-<body style="margin: 0; font-family: Arial, sans-serif;">
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif;">
 
   <!-- Practice R code -->
   <iframe
-  src="topic1-interactive.html?block=practice-1"
-  title="Practice R Code"
-  style="display: block; width: 100%; height: 225px; border: none;">
-</iframe>
+    src="topic1-interactive.html?block=practice-1"
+    title="Practice R Code"
+    style="display: block; width: 100%; height: 225px; border: none;">
+  </iframe>
 
   <!-- Confirmation checkbox -->
   <label style="display: block; margin: 8px 0;">
@@ -21,43 +21,69 @@
     I have attempted the exercise and run my R code.
   </label>
 
-  <!-- Solution -->
-  <details id="solution" style="margin: 8px 0;">
-    <summary style="cursor: pointer; font-weight: bold;">
-      Show Solution
-    </summary>
+  <!-- Solution toggle -->
+  <div style="margin: 8px 0;">
+    <button
+      id="solution-button"
+      type="button"
+      disabled
+      style="background: none; border: none; padding: 0;
+             font: bold 16px Arial, sans-serif;
+             color: #888; cursor: not-allowed;">
+      🔒 Show Solution
+    </button>
 
-    <iframe
-      id="solution-frame"
-      title="Solution R Code"
-      style="display: block; width: 100%; height: 300px;
-             border: none; margin-top: 12px;"
-      loading="lazy">
-    </iframe>
-  </details>
+    <span
+      id="lock-message"
+      style="font-size: 13px; color: #888; margin-left: 8px;">
+      Complete the checkbox first
+    </span>
+
+    <div id="solution-content" hidden>
+      <iframe
+        id="solution-frame"
+        title="Solution R Code"
+        style="display: block; width: 100%; height: 300px;
+               border: none; margin-top: 12px;">
+      </iframe>
+    </div>
+  </div>
 
   <script>
     const checkbox = document.getElementById("attempted");
-    const solution = document.getElementById("solution");
-    const solutionFrame = document.getElementById("solution-frame");
+    const button = document.getElementById("solution-button");
+    const message = document.getElementById("lock-message");
+    const content = document.getElementById("solution-content");
+    const frame = document.getElementById("solution-frame");
 
-    // Keep the solution locked until the checkbox is checked.
-    solution.addEventListener("toggle", function () {
-      if (solution.open && !checkbox.checked) {
-        solution.open = false;
-      }
+    checkbox.addEventListener("change", function () {
+      button.disabled = !checkbox.checked;
 
-      if (solution.open && checkbox.checked &&
-          !solutionFrame.src) {
-        solutionFrame.src =
-          "topic1-interactive.html?block=solution-1";
+      if (checkbox.checked) {
+        button.style.color = "#222";
+        button.style.cursor = "pointer";
+        button.textContent = "▶ Show Solution";
+        message.hidden = true;
+      } else {
+        button.style.color = "#888";
+        button.style.cursor = "not-allowed";
+        button.textContent = "🔒 Show Solution";
+        message.hidden = false;
+        content.hidden = true;
       }
     });
 
-    // Close the solution if the checkbox is unchecked.
-    checkbox.addEventListener("change", function () {
-      if (!checkbox.checked) {
-        solution.open = false;
+    button.addEventListener("click", function () {
+      content.hidden = !content.hidden;
+
+      if (!content.hidden) {
+        button.textContent = "▼ Hide Solution";
+
+        if (!frame.getAttribute("src")) {
+          frame.src = "topic1-interactive.html?block=solution-1";
+        }
+      } else {
+        button.textContent = "▶ Show Solution";
       }
     });
   </script>
