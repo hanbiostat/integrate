@@ -37,11 +37,52 @@ body {
 }
 
 /* 5. Make interactive sections fill the width */
-/* Do NOT force display: block here.
-   JavaScript needs to hide unselected sections. */
 #quarto-document-content > section.level2 {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
-/* Hide sections selected for removal by JavaScript */
+/* 6. Hide sections selected for removal by JavaScript */
 #quarto-document-content > section.level2[style*="display: none"] {
   display: none !important;
+}
+
+/* 7. Hide section titles */
+#quarto-document-content section.level2 > h2,
+#quarto-document-content section.level2 > h2.anchored {
+  display: none !important;
+}
+
+/* 8. Align interactive code cells to the left */
+#quarto-document-content > section.level2 > .cell {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 9. Remove width restrictions on WebR editors */
+.exercise-cell,
+.card.exercise-editor {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 10. Keep output aligned with the editor */
+.cell-output,
+.code-with-filename {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 11. Reduce unnecessary vertical spacing */
+.cell {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
