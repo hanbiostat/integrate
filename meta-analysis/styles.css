@@ -1,20 +1,53 @@
-/* Make interactive blocks fill the iframe width */
+/* ==========================================
+   INTEGRATE - Interactive R Code Blocks
+   ========================================== */
+
+/* Remove default page margins */
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* Remove Quarto's content-width restrictions */
 #quarto-content,
 main.content,
 .page-columns {
   width: 100% !important;
   max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Remove Quarto's default margins and padding */
-main.content {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+/* Override Quarto's centered article layout */
+.page-columns {
+  display: block !important;
 }
 
-/* Hide Quarto section headings */
+/* Make each interactive section use full width */
+section.level2 {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Hide headings such as "Explore Continuous Data" */
 section.level2 > h2 {
-  display: none;
+  display: none !important;
+}
+
+/* Make interactive code blocks use available width */
+.cell,
+.cell-output,
+.code-with-filename {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Remove unnecessary spacing around code blocks */
+.cell {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
