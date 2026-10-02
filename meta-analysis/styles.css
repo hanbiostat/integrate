@@ -10,9 +10,24 @@ body {
   width: 100% !important;
 }
 
-/* Remove Quarto's content-width restrictions */
-#quarto-content,
-main.content,
+/* Remove Quarto's centered content layout */
+#quarto-content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove default article width restrictions */
+main.content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove Quarto's article-column restrictions */
 .page-columns {
   width: 100% !important;
   max-width: none !important;
@@ -20,12 +35,7 @@ main.content,
   padding: 0 !important;
 }
 
-/* Override Quarto's centered article layout */
-.page-columns {
-  display: block !important;
-}
-
-/* Make each interactive section use full width */
+/* Make interactive sections use the available width */
 section.level2 {
   width: 100% !important;
   max-width: none !important;
@@ -33,47 +43,24 @@ section.level2 {
   padding: 0 !important;
 }
 
-/* Hide headings such as "Explore Continuous Data" */
+/* Hide section headings */
 section.level2 > h2 {
   display: none !important;
 }
 
-/* Make interactive code blocks use available width */
+/* Align interactive code blocks to the left */
 .cell,
+.live-code-cell,
 .cell-output,
 .code-with-filename {
   width: 100% !important;
   max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-/* Remove unnecessary spacing around code blocks */
+/* Reduce spacing around code blocks */
 .cell {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-}
-
-/* Remove Quarto's centered grid layout */
-#quarto-content {
-  display: block !important;
-}
-
-#quarto-content > main,
-main.content {
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* Make code editors use the full content width */
-section.level2,
-.cell,
-.live-code-cell {
-  width: 100% !important;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
 }
