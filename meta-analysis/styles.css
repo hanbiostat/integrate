@@ -50,8 +50,7 @@ body {
 }
 
 /* 7. Hide section titles */
-#quarto-document-content section.level2 > h2,
-#quarto-document-content section.level2 > h2.anchored {
+#quarto-document-content section.level2 > h2 {
   display: none !important;
 }
 
@@ -87,7 +86,3 @@ body {
   margin-bottom: 0 !important;
 }
 
-/* Test: hide all headings in the embedded Quarto page */
-h1, h2, h3, h4, h5, h6 {
-  display: none !important;
-}
