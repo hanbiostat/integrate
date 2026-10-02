@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Practice Exercise</title>
+</head>
+
+<body style="margin: 0; font-family: Arial, sans-serif;">
+
+  <!-- Practice R code -->
+  <iframe
+    src="topic1-interactive.html?block=practice-1"
+    title="Practice R Code"
+    style="display: block; width: 100%; height: 300px;
+           border: none;">
+  </iframe>
+
+  <!-- Confirmation checkbox -->
+  <label style="display: block; margin: 16px 0;">
+    <input type="checkbox" id="attempted">
+    I have attempted the exercise and run my R code.
+  </label>
+
+  <!-- Solution -->
+  <details id="solution" style="margin: 16px 0;">
+    <summary style="cursor: pointer; font-weight: bold;">
+      Show Solution
+    </summary>
+
+    <iframe
+      id="solution-frame"
+      title="Solution R Code"
+      style="display: block; width: 100%; height: 300px;
+             border: none; margin-top: 12px;"
+      loading="lazy">
+    </iframe>
+  </details>
+
+  <script>
+    const checkbox = document.getElementById("attempted");
+    const solution = document.getElementById("solution");
+    const solutionFrame = document.getElementById("solution-frame");
+
+    // Keep the solution locked until the checkbox is checked.
+    solution.addEventListener("toggle", function () {
+      if (solution.open && !checkbox.checked) {
+        solution.open = false;
+      }
+
+      if (solution.open && checkbox.checked &&
+          !solutionFrame.src) {
+        solutionFrame.src =
+          "topic1-interactive.html?block=solution-1";
+      }
+    });
+
+    // Close the solution if the checkbox is unchecked.
+    checkbox.addEventListener("change", function () {
+      if (!checkbox.checked) {
+        solution.open = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
