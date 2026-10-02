@@ -1,16 +1,17 @@
+
 /* ==========================================
    INTEGRATE - Interactive R Code Blocks
    ========================================== */
 
-/* Remove default page margins */
+/* 1. Remove default page margins */
 html,
 body {
+  width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  width: 100% !important;
 }
 
-/* Remove Quarto's centered content layout */
+/* 2. Remove Quarto's centered page layout */
 #quarto-content {
   display: block !important;
   width: 100% !important;
@@ -19,15 +20,16 @@ body {
   padding: 0 !important;
 }
 
-/* Remove default article width restrictions */
-main.content {
+/* 3. Make the main content fill the iframe */
+#quarto-document-content {
+  display: block !important;
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Remove Quarto's article-column restrictions */
+/* 4. Remove article-column width restrictions */
 .page-columns {
   width: 100% !important;
   max-width: none !important;
@@ -35,22 +37,38 @@ main.content {
   padding: 0 !important;
 }
 
-/* Make interactive sections use the available width */
-section.level2 {
+/* 5. Make interactive sections fill the width */
+#quarto-document-content > section.level2 {
+  display: block !important;
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Hide section headings */
+/* 6. Hide Quarto headings */
 section.level2 > h2 {
   display: none !important;
 }
 
-/* Align interactive code blocks to the left */
-.cell,
-.live-code-cell,
+/* 7. Align interactive code cells to the left */
+#quarto-document-content > section.level2 > .cell {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 8. Remove width restrictions on WebR editors */
+.exercise-cell,
+.card.exercise-editor {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 9. Keep output aligned with the editor */
 .cell-output,
 .code-with-filename {
   width: 100% !important;
@@ -59,7 +77,7 @@ section.level2 > h2 {
   margin-right: 0 !important;
 }
 
-/* Reduce spacing around code blocks */
+/* 10. Reduce unnecessary vertical spacing */
 .cell {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
